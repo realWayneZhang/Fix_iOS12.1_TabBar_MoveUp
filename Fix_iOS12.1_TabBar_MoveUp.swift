@@ -1,14 +1,14 @@
 //
 //  Fix_iOS12.1_TabBar_MoveUp.swift
-//  RefuelNow
+//  Longkin.net
 //
 //  Created by Winson Zhang on 2018/12/17.
-//  Copyright © 2018 LY. All rights reserved.
+//  Copyright © 2018 Winson Zhang All rights reserved.
 //
 
 import UIKit
 
-/// 现目前所有的iPhone系列 tabBar 高度均是 49，除去 safeArea 外
+/// 现目前所有的iPhone系列 除去 safeArea 外 tabBar 高度均是 49
 let wm_tabBarHeight = 49.0
 /// MARK: -运行时注入协议
 fileprivate protocol Injectable { static func inject() }
@@ -36,11 +36,11 @@ extension DispatchQueue {
         closure()
     }
 }
-/// MARK: - 在运行时更改 tabBarButton 的 framw
+/// MARK: - 在运行时更改 tabBarButton 的 frame
 final class TabBarButtonInject: Injectable {
     // 实现协议方法
     static func inject() {
-        guard  let tabBarClass = NSClassFromString("UITabBarButton") else { return }
+        guard let tabBarClass = NSClassFromString("UITabBarButton") else { return }
         // 定义一个 selector
         let originalSelector: Selector = #selector(setter:UIView.frame)
         // 获取tabBar 实例方法
